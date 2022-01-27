@@ -1,7 +1,13 @@
 import PropTypes from 'prop-types';
 
-export default function FriendListItem({ friend: { avatar, name, isOnline } }) {
-  return;
+export default function FriendListItem({ avatar, name, isOnline }) {
+  return (
+    <li>
+      {/* {isOnline ? <Online /> : <Offline />} */}
+      <img src={avatar} alt={name} />
+      <p>{name}</p>
+    </li>
+  );
 }
 
 FriendListItem.propTypes = {
