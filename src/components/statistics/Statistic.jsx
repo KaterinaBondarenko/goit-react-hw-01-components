@@ -1,21 +1,29 @@
 import PropTypes from 'prop-types';
 import { getRandomRgbColor } from '../../utils/getRandomRgbColor';
+import {
+  StatisticsContainer,
+  Title,
+  StatsList,
+  StatsListItem,
+  FileFormat,
+  Percentage,
+} from './Statistic.styled';
 
 export default function Statistic({ title, stats }) {
   return (
-    <div>
-      {title && <h2>{title.toUpperCase()}</h2>}
-      <ul>
+    <StatisticsContainer>
+      {title && <Title>{title.toUpperCase()}</Title>}
+      <StatsList>
         {stats.map(({ id, label, percentage }) => {
           return (
-            <li key={id} color={getRandomRgbColor()}>
-              <span>{label}</span>
-              <span>{percentage}%</span>
-            </li>
+            <StatsListItem key={id} color={getRandomRgbColor()}>
+              <FileFormat>{label}</FileFormat>
+              <Percentage>{percentage}%</Percentage>
+            </StatsListItem>
           );
         })}
-      </ul>
-    </div>
+      </StatsList>
+    </StatisticsContainer>
   );
 }
 
